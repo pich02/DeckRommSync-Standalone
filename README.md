@@ -32,8 +32,8 @@ After starting the application open a Browser `http://{ip-steamdeck}:5000` and c
 Now you have to setup following Settings:
 
 ### RomM API Settings
-**RomM API URL:** API URL from RomM `http://{ip-romm}:{port-romm}/api`
-**Username:**   your Username of RomM
+**RomM API URL:** API URL from RomM `http://{ip-romm}:{port-romm}/api`\
+**Username:**   your Username of RomM\
 **Password:**   your Password of RomM
 
 Press Save after entering the data. Then wait 2-3 minutes until the background worker has completed one cycle. Now refresh the Browser (F5)
