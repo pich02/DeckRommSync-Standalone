@@ -1,3 +1,7 @@
 system.log
 .vscode/settings.json
 background_worker.log
+test.py
+tests/*
+output/*
+TEST_background_worker.log

@@ -25,7 +25,7 @@ class BackgroundWorker:
         db = DeckRommSyncDatabase(self.dbName)
 
         # Read Platforms from RomM
-        platform_result = romm.getPlatforms()
+        platform_result = romm.getPlatforms()        
         for platform in platform_result:
             # Insert Platforms
             db.insert("platforms_matching", ["romm_platform_id", "romm_platform_name"], (platform['id'], platform['name']))
@@ -34,25 +34,32 @@ class BackgroundWorker:
         collection_result = romm.getCollections()
 
         # Go Through Collections and Insert them into the Database
-        for collection in collection_result:          
+        for collection in collection_result:  
+            if isinstance(collection['path_covers_large'], list) and collection['path_covers_large']:
+                first_cover = collection['path_covers_large'][0]  # Sicher das erste Element holen
+            else:
+                first_cover = collection['path_covers_large']  # Falls es kein Array ist, einfach den Wert übernehmen        
+                        
             db.insert("collections", ["collections_id", "name", "rom_count", "cover", "collection_sync"], 
                     (collection['id'],
                     collection['name'],
                     collection['rom_count'],
-                    collection['path_cover_l'],
+                    first_cover,
                     0))
             
             # Read ROMs from Collection
-            roms = collection['roms']
+            roms = collection['rom_ids']
             for rom in roms:
-                romObj = romm.getRomByID(rom)
+                romObj = romm.getRomByID(rom)     
+                filename = romObj['fs_name']   
+                             
                 # Insert ROM
                 db.insert("roms", ["roms_id", "collections_id", "name", "url_cover", "filename", "platform_fs_slug", "platform_id"],
                         (romObj['id'],
                         collection['id'],
                         romObj['name'],
                         romObj['url_cover'],
-                        romObj['file_name_no_ext'],
+                        filename,
                         romObj['platform_fs_slug'],
                         romObj['platform_id']))
         # Write Log

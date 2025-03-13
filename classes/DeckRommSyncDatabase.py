@@ -27,6 +27,7 @@ class DeckRommSyncDatabase:
         cols = ', '.join(columns)
         placeholders = ', '.join(['?' for _ in columns])
         query = f"INSERT INTO {table} ({cols}) VALUES ({placeholders})"
+        # print(query)
         self.execute_query(query, values)
     
     def update(self, table: str, updates: dict, condition: str, condition_values: Tuple) -> None:
