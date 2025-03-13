@@ -40,7 +40,7 @@ Press Save after entering the data. Then wait 2-3 minutes until the background w
 (The Background Worker will fetch your Collections / Platforms / etc.)
 
 ### Configurate Platform Matching
-After the Background Worker runs for the first time, you can see your Platforms on the Config-Page.
+After the Background Worker runs for the first time, you can see your Platforms and Collections on the Config-Page.\
 **Steamdeck System Path:** Enter the path of your RetroDeck installation under `Steamdeck System Path`.
 
 Below, you will see a table with all platforms.
