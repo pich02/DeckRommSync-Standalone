@@ -22,6 +22,23 @@ The games are automatically copied to the correct directory. Retrodeck is requir
 
 4. (Optional) Adjust the port in the config.json file. By default, the application runs on port 5000.
 
+### Docker
+
+- build image
+```bash
+docker build -t deckrommsync:latest . -f build.dockerfile
+```
+
+- Build executable with PyInstller
+```bash
+docker run -v ./dist:/app/dist deckrommsync:latest
+```
+
+- Run directly from docker image
+```bash
+docker run deckrommsync:latest python3.13 app.py
+```
+
 ## Configuration
 Now the installation is complete and you can start the application with following command. Make sure you have activate the environment, see Installation Point 2.
 ```bash
