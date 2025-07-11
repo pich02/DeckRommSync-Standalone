@@ -24,7 +24,7 @@ The games are automatically copied to the correct directory. Retrodeck is requir
 
 ### Docker
 
-- build image
+- Build image
 ```bash
 docker build -t deckrommsync:latest . -f build.dockerfile
 ```
@@ -33,6 +33,8 @@ docker build -t deckrommsync:latest . -f build.dockerfile
 ```bash
 docker run -v ./dist:/app/dist deckrommsync:latest
 ```
+
+executable DeckRommSync_Linux-6.1.0-34-amd64-x86_64-with-glibc2.24 should be in in ./dist folder.
 
 - Run directly from docker image
 ```bash
